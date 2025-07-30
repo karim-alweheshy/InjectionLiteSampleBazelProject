@@ -1,0 +1,28 @@
+"""
+This file is used to define external dependencies for the project.
+https://bazel.build/external/overview
+"""
+
+module(name = "injectionlite")
+
+bazel_dep(name = "rules_swift_package_manager", version = "1.2.0")
+
+swift_deps = use_extension(
+    "@rules_swift_package_manager//:extensions.bzl",
+    "swift_deps",
+)
+swift_deps.from_package(
+    declare_swift_package = False,
+    resolved = "//:Package.resolved",
+    swift = "//:Package.swift",
+)
+use_repo(
+    swift_deps,
+    "swiftpkg_injectionlite",
+)
+swift_deps.configure_package(
+    name = "swiftpkg_injectionlite",
+    patches = [
+        "//tools:third_party/swiftpkg/injectionlite/dependencies.patch",
+    ],
+)

@@ -113,8 +113,37 @@ This project includes InjectionLite for hot reloading:
 - Clean Bazel cache: `bazel clean --expunge`
 - Update dependencies: `make update-swift-package-manager`
 
+### Missing Headers or Dependency Issues
+If you encounter errors like:
+- `undeclared inclusion(s) in rule`
+- `missing dependency declarations for the following files`
+- Header files not found
+- Swift package dependency resolution failures
+
+**Solution:**
+```bash
+bazel clean --expunge
+make update-swift-package-manager
+bazel build //:InjectionLiteSampleBazelProjectApp
+```
+
+The `--expunge` flag completely removes all build artifacts and cached dependencies, forcing a fresh rebuild that often resolves dependency and header issues.
+
+### Target Exclusion or Visibility Issues
+If you see errors about targets not being visible or excluded from builds:
+- Add `visibility = ["//visibility:public"]` to your targets in BUILD file
+- Run `bazel clean --expunge` to clear any cached visibility rules
+- Regenerate dependencies: `make update-swift-package-manager`
+
+### Permission Issues
+If you encounter permission errors for reading or writing files:
+- Check file permissions: `ls -la`
+- Ensure your user has read/write access to the project directory
+- Run `bazel clean --expunge` to clear any corrupted cache files
+- On macOS, you may need to grant Terminal/IDE access in System Preferences > Security & Privacy
+
 ### Xcode Project Generation Issues
-- If Xcode project generation fails, try: `bazel clean`
+- If Xcode project generation fails, try: `bazel clean --expunge`
 - Regenerate the project: `bazel run //:InjectionLiteSampleProject`
 - Make sure rules_xcodeproj is properly configured in MODULE.bazel
 
@@ -127,6 +156,13 @@ This project includes InjectionLite for hot reloading:
 - Check that the `-interposable` linker flag is present in BUILD file
 - InjectionLite works best in iOS Simulator, not on physical devices
 - For Xcode builds, ensure the project was generated with the linker flags
+
+### General Recovery Steps
+When in doubt, try this sequence:
+1. `bazel clean --expunge` - Completely clean all Bazel artifacts
+2. `make update-swift-package-manager` - Update Swift package dependencies
+3. `bazel build //:InjectionLiteSampleBazelProjectApp` - Rebuild from scratch
+4. If using Xcode: `bazel run //:InjectionLiteSampleProject` - Regenerate Xcode project
 
 ## Customization
 

@@ -6,6 +6,8 @@ https://bazel.build/external/overview
 module(name = "injectionlite")
 
 bazel_dep(name = "rules_swift_package_manager", version = "1.2.0")
+bazel_dep(name = "rules_apple", version = "4.0.1")
+bazel_dep(name = "rules_swift", version = "2.4.0")
 
 swift_deps = use_extension(
     "@rules_swift_package_manager//:extensions.bzl",

@@ -7,23 +7,29 @@
 
 import SwiftUI
 import Foundation
+import HotSwiftUI
 
 struct ContentView: View {
-    var body: AnyView {
-        AnyView(
-            NavigationView {
-                VStack {
-                    Image(systemName: "globe")
-                        .imageScale(.large)
-                        .foregroundStyle(.tint)
+    #if DEBUG
+    @ObservedObject var iO = injectionObserver
+    #endif
+    
+    var body: some View {
+        NavigationView {
+            VStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+                Text("Hello, world!")
+                Text("Hello, world!")
+                Text("Hello, world!")
+                NavigationLink(destination: ContentView2()) {
                     Text("Hello, world!")
-                    Text("Hello, world!")
-                    NavigationLink(destination: ContentView2()) {
-                        Text("Hello, world!")
-                    }
                 }
-                .padding()
+                ContentView2()
             }
-        )
+            .padding()
+        }.eraseToAnyView()
     }
 }

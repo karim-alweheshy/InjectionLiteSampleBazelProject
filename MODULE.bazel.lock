@@ -3254,19 +3254,19 @@
     "@@rules_swift_package_manager+//:extensions.bzl%swift_deps": {
       "general": {
         "bzlTransitiveDigest": "+z+pZIYCLcHGxGMADT76Mme+Sq6/ptcE1QGsNUmgRZ4=",
-        "usagesDigest": "8QUTo2lK6UXi+I/2nRP3FcnNdkOaI1c16Q3Mxnw3VCQ=",
+        "usagesDigest": "x3SFt0p92okSuA2p/BXqDKY4NCpn2gipNa5JZxudp+s=",
         "recordedFileInputs": {
-          "@@//Package.resolved": "640cc5d4072bbef560b3b7ae8246c517b483148884dca79d204a2468b5df13ea"
+          "@@//Package.resolved": "86eea8ec6b435eb00e913d4a343dd0f428f82b7cc7d6c74d8a1aee50c2f5790c"
         },
         "recordedDirentsInputs": {},
         "envVariables": {},
         "generatedRepoSpecs": {
-          "swiftpkg_injectionlite": {
+          "swiftpkg_injectionnext": {
             "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
             "attributes": {
-              "bazel_package_name": "swiftpkg_injectionlite",
-              "commit": "dc8647b754e78aa274e522e5838114b854cc7ac3",
-              "remote": "https://github.com/karim-alweheshy/InjectionLite",
+              "bazel_package_name": "swiftpkg_injectionnext",
+              "commit": "0202f9156cd2f165ec6d96a3acdd84441b4766ab",
+              "remote": "https://github.com/karim-alweheshy/InjectionNext",
               "version": "",
               "env": {},
               "env_inherit": [],
@@ -3278,86 +3278,18 @@
               "patch_cmds": [],
               "patch_cmds_win": [],
               "patch_tool": "",
-              "patches": [
-                "@@//tools:third_party/swiftpkg/injectionlite/dependencies.patch"
-              ],
-              "publicly_expose_all_targets": false,
-              "replace_scm_with_registry": false
-            }
-          },
-          "swiftpkg_dlkit": {
-            "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
-            "attributes": {
-              "bazel_package_name": "swiftpkg_dlkit",
-              "commit": "3387160d468fb0c7b73528ed9a2f7eebb95567d9",
-              "remote": "https://github.com/johnno1962/DLKit",
-              "version": "3.4.11",
-              "env": {},
-              "env_inherit": [],
-              "init_submodules": false,
-              "recursive_init_submodules": true,
-              "patch_args": [
-                "-p0"
-              ],
-              "patch_cmds": [],
-              "patch_cmds_win": [],
-              "patch_tool": "",
               "patches": [],
               "publicly_expose_all_targets": false,
               "replace_scm_with_registry": false
             }
           },
-          "swiftpkg_fishhook": {
+          "swiftpkg_hotswiftui": {
             "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
             "attributes": {
-              "bazel_package_name": "swiftpkg_fishhook",
-              "commit": "2506520d827ff3f8b5fec800797e10f9b6ef92f5",
-              "remote": "https://github.com/johnno1962/fishhook",
-              "version": "1.2.1",
-              "env": {},
-              "env_inherit": [],
-              "init_submodules": false,
-              "recursive_init_submodules": true,
-              "patch_args": [
-                "-p0"
-              ],
-              "patch_cmds": [],
-              "patch_cmds_win": [],
-              "patch_tool": "",
-              "patches": [],
-              "publicly_expose_all_targets": false,
-              "replace_scm_with_registry": false
-            }
-          },
-          "swiftpkg_popen": {
-            "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
-            "attributes": {
-              "bazel_package_name": "swiftpkg_popen",
-              "commit": "095a0ddb2db96df84a3296fdb19a8f573a559257",
-              "remote": "https://github.com/johnno1962/Popen",
-              "version": "2.1.9",
-              "env": {},
-              "env_inherit": [],
-              "init_submodules": false,
-              "recursive_init_submodules": true,
-              "patch_args": [
-                "-p0"
-              ],
-              "patch_cmds": [],
-              "patch_cmds_win": [],
-              "patch_tool": "",
-              "patches": [],
-              "publicly_expose_all_targets": false,
-              "replace_scm_with_registry": false
-            }
-          },
-          "swiftpkg_swiftregex5": {
-            "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
-            "attributes": {
-              "bazel_package_name": "swiftpkg_swiftregex5",
-              "commit": "60fde2e2e3b691abb35ba4b67e3f0adc82f6d1f5",
-              "remote": "https://github.com/johnno1962/SwiftRegex5",
-              "version": "6.1.3",
+              "bazel_package_name": "swiftpkg_hotswiftui",
+              "commit": "79b90df110099c6fe6f14be3da577f744cf3ec1a",
+              "remote": "https://github.com/johnno1962/HotSwiftUI",
+              "version": "",
               "env": {},
               "env_inherit": [],
               "init_submodules": false,
@@ -3376,7 +3308,8 @@
         },
         "moduleExtensionMetadata": {
           "explicitRootModuleDirectDeps": [
-            "swiftpkg_injectionlite"
+            "swiftpkg_injectionnext",
+            "swiftpkg_hotswiftui"
           ],
           "explicitRootModuleDirectDevDeps": [],
           "useAllRepos": "NO",

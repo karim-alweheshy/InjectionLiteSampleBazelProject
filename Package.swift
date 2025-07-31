@@ -12,8 +12,12 @@ let package = Package(
   dependencies: [
     // HotReloading 1.4.0RC1
     .package(
-      url: "https://github.com/karim-alweheshy/InjectionLite",
-      revision: "dc8647b754e78aa274e522e5838114b854cc7ac3"
+      url: "https://github.com/karim-alweheshy/InjectionNext",
+      revision: "0202f9156cd2f165ec6d96a3acdd84441b4766ab"
     ),
+    .package(
+        url: "https://github.com/johnno1962/HotSwiftUI",
+        revision: "79b90df110099c6fe6f14be3da577f744cf3ec1a"
+    )
   ]
 )

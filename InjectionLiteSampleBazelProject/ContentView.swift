@@ -6,19 +6,24 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+    var body: AnyView {
+        AnyView(
+            NavigationView {
+                VStack {
+                    Image(systemName: "globe")
+                        .imageScale(.large)
+                        .foregroundStyle(.tint)
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    NavigationLink(destination: ContentView2()) {
+                        Text("Hello, world!")
+                    }
+                }
+                .padding()
+            }
+        )
     }
-}
-
-#Preview {
-    ContentView()
 }

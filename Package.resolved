@@ -1,48 +1,20 @@
 {
-  "originHash" : "0d4d26ec06921dcf206d41440f875fecd1e0b2172a537bd6607a21abc564faf6",
+  "originHash" : "2cdbac969cadcff6002731e2cfd92f7417c5eb24c333ef2538073e09baeeea28",
   "pins" : [
     {
-      "identity" : "dlkit",
+      "identity" : "hotswiftui",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnno1962/DLKit",
+      "location" : "https://github.com/johnno1962/HotSwiftUI",
       "state" : {
-        "revision" : "3387160d468fb0c7b73528ed9a2f7eebb95567d9",
-        "version" : "3.4.11"
+        "revision" : "79b90df110099c6fe6f14be3da577f744cf3ec1a"
       }
     },
     {
-      "identity" : "fishhook",
+      "identity" : "injectionnext",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnno1962/fishhook",
+      "location" : "https://github.com/karim-alweheshy/InjectionNext",
       "state" : {
-        "revision" : "2506520d827ff3f8b5fec800797e10f9b6ef92f5",
-        "version" : "1.2.1"
-      }
-    },
-    {
-      "identity" : "injectionlite",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/karim-alweheshy/InjectionLite",
-      "state" : {
-        "revision" : "dc8647b754e78aa274e522e5838114b854cc7ac3"
-      }
-    },
-    {
-      "identity" : "popen",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnno1962/Popen",
-      "state" : {
-        "revision" : "095a0ddb2db96df84a3296fdb19a8f573a559257",
-        "version" : "2.1.9"
-      }
-    },
-    {
-      "identity" : "swiftregex5",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnno1962/SwiftRegex5",
-      "state" : {
-        "revision" : "60fde2e2e3b691abb35ba4b67e3f0adc82f6d1f5",
-        "version" : "6.1.3"
+        "revision" : "0202f9156cd2f165ec6d96a3acdd84441b4766ab"
       }
     }
   ],

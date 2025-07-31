@@ -1,12 +1,13 @@
 {
-  "originHash" : "2cdbac969cadcff6002731e2cfd92f7417c5eb24c333ef2538073e09baeeea28",
+  "originHash" : "05de7e768a69b109836b258e48bda551ea864eeec28ff1c967eab6845aaf7afb",
   "pins" : [
     {
-      "identity" : "hotswiftui",
+      "identity" : "inject",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/johnno1962/HotSwiftUI",
+      "location" : "https://github.com/krzysztofzablocki/Inject",
       "state" : {
-        "revision" : "79b90df110099c6fe6f14be3da577f744cf3ec1a"
+        "revision" : "728c56639ecb3df441d51d5bc6747329afabcfc9",
+        "version" : "1.5.2"
       }
     },
     {

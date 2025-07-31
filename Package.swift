@@ -16,8 +16,8 @@ let package = Package(
       revision: "0202f9156cd2f165ec6d96a3acdd84441b4766ab"
     ),
     .package(
-        url: "https://github.com/johnno1962/HotSwiftUI",
-        revision: "79b90df110099c6fe6f14be3da577f744cf3ec1a"
+        url: "https://github.com/krzysztofzablocki/Inject",
+        from: "1.2.4"
     )
   ]
 )

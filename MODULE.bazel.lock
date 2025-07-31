@@ -3256,7 +3256,7 @@
         "bzlTransitiveDigest": "+z+pZIYCLcHGxGMADT76Mme+Sq6/ptcE1QGsNUmgRZ4=",
         "usagesDigest": "x3SFt0p92okSuA2p/BXqDKY4NCpn2gipNa5JZxudp+s=",
         "recordedFileInputs": {
-          "@@//Package.resolved": "86eea8ec6b435eb00e913d4a343dd0f428f82b7cc7d6c74d8a1aee50c2f5790c"
+          "@@//Package.resolved": "dbc0bf562e1c8adf520400779d7f5b0ad1f79ffac1d522f854e4ffeea3546c0a"
         },
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -3283,13 +3283,13 @@
               "replace_scm_with_registry": false
             }
           },
-          "swiftpkg_hotswiftui": {
+          "swiftpkg_inject": {
             "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
             "attributes": {
-              "bazel_package_name": "swiftpkg_hotswiftui",
-              "commit": "79b90df110099c6fe6f14be3da577f744cf3ec1a",
-              "remote": "https://github.com/johnno1962/HotSwiftUI",
-              "version": "",
+              "bazel_package_name": "swiftpkg_inject",
+              "commit": "728c56639ecb3df441d51d5bc6747329afabcfc9",
+              "remote": "https://github.com/krzysztofzablocki/Inject",
+              "version": "1.5.2",
               "env": {},
               "env_inherit": [],
               "init_submodules": false,
@@ -3309,7 +3309,7 @@
         "moduleExtensionMetadata": {
           "explicitRootModuleDirectDeps": [
             "swiftpkg_injectionnext",
-            "swiftpkg_hotswiftui"
+            "swiftpkg_inject"
           ],
           "explicitRootModuleDirectDevDeps": [],
           "useAllRepos": "NO",

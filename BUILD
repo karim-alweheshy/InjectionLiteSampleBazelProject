@@ -7,11 +7,14 @@ swift_library(
     srcs = [
         "InjectionLiteSampleBazelProject/InjectionLiteSampleBazelProjectApp.swift",
         "InjectionLiteSampleBazelProject/ContentView.swift",
-        "InjectionLiteSampleBazelProject/ContentView2.swift",
+        "InjectionLiteSampleBazelProject/UIKitBridges.swift",
     ],
     deps = [
+        "//UserProfile:UserProfile",
+        "//DataAnalytics:DataAnalytics", 
+        "//NetworkService:NetworkService",
         "@swiftpkg_injectionnext//:InjectionNext",
-        "@swiftpkg_hotswiftui//:HotSwiftUI",
+        "@swiftpkg_inject//:Inject",
     ],
     module_name = "InjectionLiteSampleBazelProject",
     visibility = ["//visibility:public"],
@@ -28,7 +31,7 @@ ios_application(
     minimum_os_version = "15.0",
     deps = [
         ":InjectionLiteSampleBazelProject",
-        "@swiftpkg_hotswiftui//:HotSwiftUI",
+        "@swiftpkg_inject//:Inject",
     ],
     linkopts = [
         "-interposable",

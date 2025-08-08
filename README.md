@@ -40,7 +40,8 @@ cd InjectionLiteSampleBazelProject
 make update-swift-package-manager
 ```
 
-## Option 1: Command Line Development
+## Option 1: Command Line Development (with InjectionNext)
+Note: `bazel build/run` invokes the project wrapper internally; you don't need to call `./tools/bazel` directly.
 
 ### Build the iOS Application
 ```bash
@@ -54,9 +55,9 @@ bazel run //:InjectionLiteSampleBazelProjectApp
 
 ### Development Workflow (Command Line)
 1. Build and run the app: `bazel run //:InjectionLiteSampleBazelProjectApp`
-2. Make changes to Swift files (e.g., `ContentView.swift`)
-3. Save the file - InjectionLite will automatically reload the changes
-4. See your changes reflected in the running app without restart
+2. The wrapper will auto-launch `tools/injection/InjectionNext.app` if needed and register the workspace for watching
+3. Make changes to Swift files (e.g., `ContentView.swift`) and save
+4. InjectionLite will hot-reload changes in the running app (simulator)
 
 ## Option 2: Xcode Development
 
@@ -77,8 +78,8 @@ open InjectionLiteSampleBazelProject.xcodeproj
 2. Select your target device/simulator in Xcode
 3. Build and run using Xcode (⌘+R)
 4. Make changes to Swift files directly in Xcode
-5. Save files - InjectionLite will automatically reload changes
-6. Changes will be reflected in the running app without restart
+5. Hot reload is NOT supported when running from Xcode in this project
+6. Rebuild to see changes when using Xcode
 
 ### Xcode Project Benefits
 - Full Xcode IDE features (autocomplete, debugging, etc.)
@@ -92,6 +93,9 @@ open InjectionLiteSampleBazelProject.xcodeproj
 - `BUILD` - Bazel build configuration defining iOS app target and Xcode project generation
 - `MODULE.bazel` - Bazel module configuration with dependencies (includes rules_xcodeproj)
 - `Package.swift` - Swift Package Manager configuration for InjectionLite
+- `tools/bazel` - Bazel wrapper that auto-starts InjectionNext and registers the workspace when running iOS app targets
+- `tools/injection/InjectionNext.app` - Bundled InjectionNext app used for hot reload
+- `tools/injection/notify-watch.py` - Helper to notify InjectionNext of the project root
 - `InjectionLiteSampleBazelProject/` - Source code directory
   - `InjectionLiteSampleBazelProjectApp.swift` - Main app entry point
   - `ContentView.swift` - SwiftUI view with InjectionLite integration
@@ -103,8 +107,13 @@ This project includes InjectionLite for hot reloading:
 
 - **Linker flags**: `-interposable` flag is configured in the BUILD file
 - **Dependencies**: InjectionLite is imported from the Swift package
-- **Usage**: Simply save any Swift file while running in debug mode to see changes
-- **Works with both**: Command line Bazel runs and Xcode project builds
+- **GUI App**: `InjectionNext.app` is bundled at `tools/injection/InjectionNext.app`
+- **Auto start**: Using `bazel run` auto-starts InjectionNext (if not running) and registers the workspace for hot reload
+- **Usage**: Save any Swift file while running in debug mode to see changes
+- **Support**: Hot reload is only supported via command-line `bazel run`; Xcode builds do not support InjectionNext in this project
+
+### Configuration
+- **Port**: The wrapper uses port `8887` by default. Override with `INJECTION_PORT`, e.g. `INJECTION_PORT=8888 bazel run //:InjectionLiteSampleBazelProjectApp`.
 
 ## Troubleshooting
 
@@ -154,8 +163,9 @@ If you encounter permission errors for reading or writing files:
 ### InjectionLite Not Working
 - Ensure you're running in debug mode
 - Check that the `-interposable` linker flag is present in BUILD file
-- InjectionLite works best in iOS Simulator, not on physical devices
-- For Xcode builds, ensure the project was generated with the linker flags
+- Prefer iOS Simulator over physical devices
+- Hot reload is not supported when running from Xcode; use `bazel run //:InjectionLiteSampleBazelProjectApp`
+- If you changed the port, ensure `INJECTION_PORT` matches `notify-watch.py` second arg
 
 ### General Recovery Steps
 When in doubt, try this sequence:

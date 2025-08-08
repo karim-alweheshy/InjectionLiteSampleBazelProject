@@ -21,6 +21,7 @@ public struct UserProfileView: View {
                     // Profile Header
                     profileHeader
                     
+                    
                     // User Stats
                     userStats
                     
@@ -53,6 +54,10 @@ public struct UserProfileView: View {
                 .foregroundColor(.secondary)
             
             Text("Age: \(viewModel.userProfile.age)")
+                .font(.body)
+                .foregroundColor(.secondary)
+
+                Text("Age: \(viewModel.userProfile.age)")
                 .font(.body)
                 .foregroundColor(.secondary)
             

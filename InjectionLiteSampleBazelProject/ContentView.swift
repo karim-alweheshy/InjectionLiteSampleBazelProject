@@ -28,26 +28,24 @@ struct DashboardView: View {
     @ObserveInjection var inject
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack(spacing: 24) {
-                    // Welcome Section
-                    welcomeSection
-                    
-                    // Quick Stats
-                    quickStatsSection
-                    
-                    // Feature Cards
-                    featureCardsSection
-                    
-                    // Recent Activity
-                    recentActivitySection
-                }
-                .padding()
+        ScrollView {
+            VStack(spacing: 24) {
+                // Welcome Section
+                welcomeSection
+
+                // Quick Stats
+                quickStatsSection
+                
+                // Feature Cards
+                featureCardsSection
+                
+                // Recent Activity
+                recentActivitySection
             }
-            .navigationTitle("Dashboard")
-            .navigationBarTitleDisplayMode(.large)
+            .padding()
         }
+        .navigationTitle("Dashboard")
+        .navigationBarTitleDisplayMode(.large)
         .enableInjection()
     }
     
@@ -78,33 +76,38 @@ struct DashboardView: View {
                 .fontWeight(.semibold)
             
             LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
-                QuickStatCard(
-                    title: "Modules",
-                    value: "4",
-                    subtitle: "Swift & Obj-C",
-                    color: .blue
-                )
-                
-                QuickStatCard(
-                    title: "Features",
-                    value: "12+",
-                    subtitle: "Interactive",
-                    color: .green
-                )
-                
-                QuickStatCard(
-                    title: "Architecture",
-                    value: "Bazel",
-                    subtitle: "Multi-target",
-                    color: .orange
-                )
-                
-                QuickStatCard(
-                    title: "Hot Reload",
-                    value: "✓",
-                    subtitle: "Enabled",
-                    color: .purple
-                )
+                NavigationLink(destination: NavigationDestination.view(for: .userProfile)) {
+                    QuickStatCard(
+                        title: "Modules",
+                        value: "4",
+                        subtitle: "Swift & Obj-C",
+                        color: .blue
+                    )
+                }
+                NavigationLink(destination: NavigationDestination.view(for: .analytics)) {
+                    QuickStatCard(
+                        title: "Features",
+                        value: "12+",
+                        subtitle: "Interactive",
+                        color: .green
+                    )
+                }
+                NavigationLink(destination: NavigationDestination.view(for: .networkService)) {
+                    QuickStatCard(
+                        title: "Architecture",
+                        value: "Bazel",
+                        subtitle: "Multi-target",
+                        color: .orange
+                    )
+                }
+                NavigationLink(destination: NavigationDestination.view(for: .settings)) {
+                    QuickStatCard(
+                        title: "Hot Reload",
+                        value: "✓",
+                        subtitle: "Enabled",
+                        color: .purple
+                    )
+                }
             }
         }
     }
@@ -126,6 +129,16 @@ struct DashboardView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 
+                NavigationLink(destination: NavigationDestination.view(for: .toDoList)) {
+                    FeatureCard(
+                        icon: "checklist",
+                        title: "Family To-Dos",
+                        description: "View and manage shared family to-dos",
+                        color: .teal
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
+
                 NavigationLink(destination: NavigationDestination.view(for: .analytics)) {
                     FeatureCard(
                         icon: "chart.bar.fill",
@@ -145,6 +158,26 @@ struct DashboardView: View {
                     )
                 }
                 .buttonStyle(PlainButtonStyle())
+
+                NavigationLink(destination: NavigationDestination.view(for: .settings)) {
+                    FeatureCard(
+                        icon: "gearshape.fill",
+                        title: "Settings",
+                        description: "Feature flags and configuration demo (DI)",
+                        color: .purple
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
+
+                NavigationLink(destination: NavigationDestination.view(for: .auth)) {
+                    FeatureCard(
+                        icon: "lock.fill",
+                        title: "Auth",
+                        description: "Login flow using a registered AuthService",
+                        color: .red
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
             }
         }
     }
@@ -156,29 +189,34 @@ struct DashboardView: View {
                 .fontWeight(.semibold)
             
             VStack(spacing: 8) {
-                ActivityItem(
-                    icon: "gear",
-                    text: "App initialized with multi-module architecture",
-                    time: "Now"
-                )
-                
-                ActivityItem(
-                    icon: "swift",
-                    text: "Swift modules loaded successfully",
-                    time: "1s ago"
-                )
-                
-                ActivityItem(
-                    icon: "c.circle",
-                    text: "Objective-C integration enabled",
-                    time: "2s ago"
-                )
-                
-                ActivityItem(
-                    icon: "hammer.fill",
-                    text: "Bazel build system ready",
-                    time: "3s ago"
-                )
+                NavigationLink(destination: NavigationDestination.view(for: .settings)) {
+                    ActivityItem(
+                        icon: "gear",
+                        text: "App initialized with multi-module architecture",
+                        time: "Now"
+                    )
+                }
+                NavigationLink(destination: NavigationDestination.view(for: .userProfile)) {
+                    ActivityItem(
+                        icon: "swift",
+                        text: "Swift modules loaded successfully",
+                        time: "1s ago"
+                    )
+                }
+                NavigationLink(destination: NavigationDestination.view(for: .analytics)) {
+                    ActivityItem(
+                        icon: "c.circle",
+                        text: "Objective-C integration enabled",
+                        time: "2s ago"
+                    )
+                }
+                NavigationLink(destination: NavigationDestination.view(for: .networkService)) {
+                    ActivityItem(
+                        icon: "hammer.fill",
+                        text: "Bazel build system ready",
+                        time: "3s ago"
+                    )
+                }
             }
         }
         .padding()

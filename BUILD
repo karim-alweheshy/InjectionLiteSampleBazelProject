@@ -13,6 +13,15 @@ swift_library(
         "//UserProfile:UserProfile",
         "//DataAnalytics:DataAnalytics", 
         "//NetworkService:NetworkService",
+        "//AppCore:AppCore",
+        "//Navigation:Navigation",
+        "//Auth:Auth",
+        "//Settings:Settings",
+        "//ToDoList:ToDoList",
+        "//ToDoDetail:ToDoDetail",
+        "//ToDoCreate:ToDoCreate",
+        "//Reminders:Reminders",
+        "//Sharing:Sharing",
         "@swiftpkg_injectionnext//:InjectionNext",
         "@swiftpkg_inject//:Inject",
     ],
@@ -31,6 +40,7 @@ ios_application(
     minimum_os_version = "15.0",
     deps = [
         ":InjectionLiteSampleBazelProject",
+        "@swiftpkg_injectionnext//:InjectionNext",
         "@swiftpkg_inject//:Inject",
     ],
     linkopts = [

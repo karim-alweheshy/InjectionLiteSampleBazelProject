@@ -3256,7 +3256,7 @@
         "bzlTransitiveDigest": "+z+pZIYCLcHGxGMADT76Mme+Sq6/ptcE1QGsNUmgRZ4=",
         "usagesDigest": "x3SFt0p92okSuA2p/BXqDKY4NCpn2gipNa5JZxudp+s=",
         "recordedFileInputs": {
-          "@@//Package.resolved": "dbc0bf562e1c8adf520400779d7f5b0ad1f79ffac1d522f854e4ffeea3546c0a"
+          "@@//Package.resolved": "e9ac9b027e4623483def5eb6f8e2bbb5c2b20cee79e502d28aa3e7bc0627a44d"
         },
         "recordedDirentsInputs": {},
         "envVariables": {},
@@ -3265,8 +3265,8 @@
             "repoRuleId": "@@rules_swift_package_manager+//swiftpkg/internal:swift_package.bzl%swift_package",
             "attributes": {
               "bazel_package_name": "swiftpkg_injectionnext",
-              "commit": "0202f9156cd2f165ec6d96a3acdd84441b4766ab",
-              "remote": "https://github.com/karim-alweheshy/InjectionNext",
+              "commit": "e87a5e89da6c31c5e590b1ad489008a104c17677",
+              "remote": "https://github.com/johnno1962/InjectionNext",
               "version": "",
               "env": {},
               "env_inherit": [],

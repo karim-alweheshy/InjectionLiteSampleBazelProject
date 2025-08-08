@@ -169,7 +169,7 @@ extension UserProfileViewController: UITableViewDataSource {
             switch indexPath.row {
             case 0:
                 cell.configure(
-                    title: "Notifications",
+                    title: "Notificationss",
                     isOn: profile.preferences.notificationsEnabled,
                     icon: "bell.fill"
                 ) { [weak self] isOn in

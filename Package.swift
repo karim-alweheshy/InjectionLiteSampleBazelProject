@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0.2
+// swift-tools-version: 6.0.0
 //
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // After changing this file, add the the repo name to `use_repo` in
@@ -10,10 +10,10 @@ import PackageDescription
 let package = Package(
   name: "injection-lite",
   dependencies: [
-    // HotReloading 1.4.0RC1
+    // HotReloading 1.4.0RC3
     .package(
-      url: "https://github.com/karim-alweheshy/InjectionNext",
-      revision: "0202f9156cd2f165ec6d96a3acdd84441b4766ab"
+      url: "https://github.com/johnno1962/InjectionNext",
+      revision: "e87a5e89da6c31c5e590b1ad489008a104c17677"
     ),
     .package(
         url: "https://github.com/krzysztofzablocki/Inject",

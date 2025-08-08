@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# InjectionNext Hot Reload Integration
+COMMAND="$1"
+TARGET="$2"
+
+parent_dir="${BASH_SOURCE[0]%/*}"
+if [[ "$parent_dir" == "." || "$parent_dir" == "${BASH_SOURCE[0]}" ]]; then
+  parent_dir="$PWD"
+elif [[ "$parent_dir" != /* ]]; then
+  parent_dir="$PWD/$parent_dir"
+fi
+readonly workspace_dir="${parent_dir%/*}"
+readonly injection_app_path="$workspace_dir/tools/injection/InjectionNext.app"
+readonly injection_port="${INJECTION_PORT:-8887}"
+
+# Check if this is a 'run' command with iOS application target
+if [[ "$COMMAND" == "run" ]]; then
+    # Use BAZEL_REAL (set by Bazelisk) to query and validate iOS application
+    FULL_TARGET=$("$BAZEL_REAL" query "kind('ios_application', $TARGET)" 2>/dev/null)
+    
+    if [[ -n "$FULL_TARGET" ]]; then
+        # Launch InjectionNext if bundled and not running
+        if [[ -d "$injection_app_path" ]]; then
+            if ! pgrep -x "InjectionNext" >/dev/null 2>&1; then
+                open -g "$injection_app_path"
+            fi
+        fi
+
+        # Wait briefly for the CLI server to come up (max ~5s)
+        for _ in {1..10}; do
+            if lsof -iTCP:"$injection_port" -sTCP:LISTEN >/dev/null 2>&1; then
+                break
+            fi
+            sleep 0.5
+        done
+
+        # Notify InjectionNext of the workspace directory
+        python3 "$workspace_dir/tools/injection/notify-watch.py" "$workspace_dir" "$injection_port"
+    fi
+fi
+
+# Execute original bazel command using BAZEL_REAL
+exec "$BAZEL_REAL" "$@"
